@@ -12,13 +12,13 @@
 <body>
 
 <div class="row">
-   <div class="col-xs-6">
+   <div class="col-xs-9">
    <fieldset class="clearfix">
    @yield('pregunta')
      </fieldset>
    </div>
 
-   <div class="col-xs-6">
+   <div class="col-xs-4">
 @yield('content') 
    </div>
  </div>

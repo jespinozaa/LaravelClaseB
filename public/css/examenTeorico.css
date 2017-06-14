@@ -150,7 +150,7 @@ label .glyphicon {
 }
 
 .modal-body {
-    min-height: 205px
+    min-height: 300px
 }
 #loadbar {
     position: absolute;
