@@ -13,5 +13,4 @@
 
 Route::get('/', 'LoginController@Home');
 Route::post('/login', 'LoginController@Login');
-Route::get('/examen', 'LoginController@Examen');
 

@@ -13,7 +13,7 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Examen Teórico Licencia Clase B</h1> 
+    <h1>Bienvenido {{$user->value('usuario')}}</h1> 
     <p>Evalua tus conocimientos contestando las siguientes preguntas</p> 
   </div>
 

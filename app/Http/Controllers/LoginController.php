@@ -16,20 +16,18 @@ class LoginController extends Controller
 
     function Login(Request $request)
     {
-
-        return View('examenTeorico');
-       /*$usuario=$request->input('usuario');
+      $usuario=$request->input('usuario');
        $password=$request->input('clave');
-       $userExist=mae_usuarios::where('usuario', 'jonathan');    
-       dd($userExist->value('password'));*/
-    }
 
-    function Examen()
-    {
-    	$user= mae_usuarios::all();
-    	return View('examenTeorico',
-            ['user'=> $user]);
+       $userExist=mae_usuarios::where('usuario', $usuario)
+       ->Where('password',$password);    
+       
+       if($userExist->count()==1)
+       {
+        return View('examenTeorico', ['user'=> $userExist]);
+       }
+        
+      
     }
-
    
 }

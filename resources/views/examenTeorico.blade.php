@@ -1,4 +1,4 @@
-@extends('Layouts.examenTeorico')
+@extends('Layouts.LayoutExamen')
 @section ('pregunta')
 
 <div class="container-fluid bg-info">
