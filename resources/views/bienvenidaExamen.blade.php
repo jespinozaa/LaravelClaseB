@@ -13,12 +13,23 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Bienvenido {{$user->value('usuario')}}</h1> 
+    
+    <h1>Bienvenido 
+    <!--Valida que la variable este definica y no sea nula y obtiene el usuario , si no lo deja como invitado-->
+    @if(isset($user))
+    {{$user->value('usuario')}}
+    @else 
+    {{'Invitado'}}
+    @endif
+    </h1>
+
     <p></p> 
   </div>
 
 </div>
-<<div class="row">
+    <form action="/cargarExamen" method="post">
+      {{ csrf_field() }}
+<div class="row">
    <div class="col-xs-12">
    <fieldset class="clearfix">
  <div class="container-fluid bg-info">
@@ -29,25 +40,19 @@
         </div>
         <div class="modal-body">
         <div class="col-xs-6">
-            <div class="col-xs-3 col-xs-offset-5">
-               <div id="loadbar" style="display: none;">
-                  <div class="blockG" id="rotateG_01"></div>
-                  <div class="blockG" id="rotateG_02"></div>
-                  <div class="blockG" id="rotateG_03"></div>
-                  <div class="blockG" id="rotateG_04"></div>
-                  <div class="blockG" id="rotateG_05"></div>
-                  <div class="blockG" id="rotateG_06"></div>
-                  <div class="blockG" id="rotateG_07"></div>
-                  <div class="blockG" id="rotateG_08"></div>
-              </div>
-          </div>
-
           <div class="quiz" id="quiz" data-toggle="buttons">
-           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">Examen 1 paginas 1-19</label>
-           <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">Examen 2 paginas 20-45</label>
-           <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">Examen 3 paginas 45-80</label>
-           <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">Examen 4 paginas 80-120</label>
+          @if(isset($examenes))
+          @foreach($examenes as $examen)
+           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="submit" name="q_answer" value="1">{{$examen}}</label>
+           @endforeach
+           @else
+           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">{{'No Existen Examenes Pre Configurados'}}</label>
+           @endif
        </div>
        </div>
      </fieldset>
    </div>
+   </div>
+   </form>
+
+   

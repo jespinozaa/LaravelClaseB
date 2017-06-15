@@ -13,7 +13,12 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Bienvenido {{$user->value('usuario')}}</h1> 
+    <h1>Bienvenido @if(isset($user))
+    {{$user->value('usuario')}}
+    @else
+  {{'Invitado'}}
+  @endif
+    </h1> 
     <p>Evalua tus conocimientos contestando las siguientes preguntas</p> 
   </div>
 
