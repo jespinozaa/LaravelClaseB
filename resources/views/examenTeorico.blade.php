@@ -16,23 +16,15 @@ function cargarPregunta(id)
     <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-          <!--@php($contadorPreguntas=1)
-         @foreach($preguntas as $pregunta)
-            <h3><span class="label label-warning" id="{{$contadorPreguntas}}">{{$pregunta}}</span> </h3>
-              @php($contadorPreguntas+=1)
-         @endforeach-->
-            <h3><span class="label label-warning" id="{{$contadorPreguntas}}">{{$preguntas[$globalSelection]}}</span> </h3>
+            <h3><span class="label label-warning" id="1">{{'Aqui Deberia Cargar La Pregunta'}}</span> </h3>
         </div>
         <div class="modal-body">
         <div class="col-xs-6">
           <div class="quiz" id="quiz" data-toggle="buttons">
-          @foreach($opciones as $opcion)
-           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">{{$opcion}}</label>
-           @endforeach
+         
+           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">{{'Y Aqui las opciones'}}</label>
        </div>
        </div>
-
-
        <div class="col-xs-6">
           <div class="quiz" id="quiz" data-toggle="buttons">
          <img class="img-responsive" alt="Cinque Terre" src="/img/senal.png" >
@@ -55,13 +47,11 @@ function cargarPregunta(id)
         </div>
         <div class="modal-body">
 @if(isset($preguntas))
- @php ($contador = 0)
-@foreach($preguntas as $pregunta)
+@for($i=1;$i<=$preguntas;$i++)
 <div class="col-xs-2">
-<div><h3><span id="{{$contador}}" ><input type="submit"  id="seleccionPregunta" class="btn-warning" value="{{$contador}}" onclick="cargarPregunta(this.value)"></span> </h3></div>
+<div><h3><span id="daLoMismoMen" ><input type="submit"  id="{{$i}}" class="btn-warning" value="{{$i}}" onclick="cargarPregunta(this.id)"></span> </h3></div>
 </div>
- @php ($contador += 1)
- @endforeach
+ @endfor
  @else
  <div class="col-xs-2">
  <div><h3><input class="label label-warning" id="qid">{{'No Existen Preguntas PreSeleccionadas'}}</input> </h3></div>

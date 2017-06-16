@@ -34,8 +34,18 @@
 
       </div> <!-- end login -->
       <div class="logo">
-        <kbd>Bienvenido</kbd>
+      @if(isset($error))
+        <kbd> Bienvenido </kbd>
+        </div>    
           <div class="clearfix"> </div>
+        <span class="label label-danger">{{$error}}</span>
+        
+
+      @else
+        <div class="logo">
+      <kbd>Bienvenido</kbd>
+          <div class="clearfix"> </div>
+      @endif
       </div>
       
       </div>

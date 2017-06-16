@@ -43,7 +43,7 @@
           <div class="quiz" id="quiz" data-toggle="buttons">
           @if(isset($examenes))
           @foreach($examenes as $examen)
-           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="submit" name="q_answer" value="1">{{$examen}}</label>
+           <label class="element-animation1 btn btn-lg btn-primary btn-block"> <input type="submit" name="examen" id="examen" value="{{$examen->value('id_examen')}}">{{'Examen Paginas: '}} {{$examen->value('pagina_inicio')}}{{'-'}} {{$examen->value('pagina_final')}}</label>
            @endforeach
            @else
            <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">{{'No Existen Examenes Pre Configurados'}}</label>
