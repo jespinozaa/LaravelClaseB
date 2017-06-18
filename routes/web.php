@@ -13,5 +13,5 @@
 
 Route::get('/', 'LoginController@Home');
 Route::post('/login', 'LoginController@Login');
-Route::post('/cargarExamen', 'ExamenController@totalPreguntas');
-
+Route::get('/cargarExamen', 'ExamenController@totalPreguntas');
+Route::post('getQuestion','ExamenController@getQuestion'); 
